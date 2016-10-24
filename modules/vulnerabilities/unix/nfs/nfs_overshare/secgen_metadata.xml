@@ -14,8 +14,30 @@
   <platform>linux</platform>
 
   <read_fact>strings_to_leak</read_fact>
-  <read_fact>files_to_leak</read_fact>
 
+  <!--if an input is not specified in the scenario-->
+  <default_input into="strings_to_leak">
+    <value>Plain text from the metadata default...</value>
+    <encoder>
+      <input into="strings_to_encode">
+        <!--encode the following strings-->
+        <value>Encoded text from the metadata default...</value>
+        <value>More encoded text from the metadata default...</value>
+        <generator />
+      </input>
+    </encoder>
+  </default_input>
+  <default_input into="harmless_unset_variable">
+    <value>Plain text from the metadata default...</value>
+    <encoder>
+      <input into="strings_to_encode">
+        <!--encode the following strings-->
+        <value>Encoded text from the metadata default...</value>
+        <value>More encoded text from the metadata default...</value>
+        <generator />
+      </input>
+    </encoder>
+  </default_input>
   <!--optional vulnerability details-->
   <difficulty>low</difficulty>
   <!--<cve></cve>-->

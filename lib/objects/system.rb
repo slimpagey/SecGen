@@ -67,6 +67,8 @@ class System
   def select_modules(module_type, required_attributes, available_modules, previously_selected_modules, unique_id, write_outputs_to, write_to_module_with_id, received_inputs)
     # select based on selected type, access, cve...
 
+    default_inputs = []
+
     search_list = available_modules.clone
     # shuffle order of available vulnerabilities
     search_list.shuffle!
@@ -101,11 +103,60 @@ class System
       selected.write_output_variable = write_outputs_to
       selected.write_to_module_with_id = write_to_module_with_id
       selected.unique_id = unique_id
-      # propagate any literal values passed in via the scenario
-      selected.received_inputs = received_inputs
+
+
+      # TODO TODO TODO TODO TODO TODO TODO TODO
+      # build a list of variables written into from previous modules (we don't use defaults in these cases)
+      variables_received_from_scenario = []
+      previously_selected_modules.each do |previous_module|
+        if previous_module.write_to_module_with_id == unique_id
+          variables_received_from_scenario << previous_module.write_output_variable
+        end
+      end
+
+      Print.debug "variables_received_from_scenario: #{variables_received_from_scenario}"
+
+      # for each default literal value, remove if variable set via scenario
+      variables_received_from_scenario.each do |key|
+        # remove from hash
+        selected.received_inputs.delete key
+        selected.default_inputs_selectors.delete key
+      end
+
+      # propagate any input values
+      # received_inputs: the literal values from the scenario or applied default modules
+      # selected.received_inputs: the default value literal strings from the module metadata -- to update
+      Print.debug "received_inputs #{received_inputs}"
+      Print.debug "selected.received_inputs #{selected.received_inputs}"
+      # if there are no values being passed into the
+      if received_inputs != {}
+        selected.received_inputs = selected.received_inputs.merge(received_inputs)
+      # else
+      #   Print.verbose 'Using default literal values'
+      end
+      # if no input received from the scenario, apply default input values/modules
+      if selected.default_inputs_selectors != {}
+        Print.verbose 'Adding default modules'
+        selected.default_inputs_selectors.each do |input_key, input_values|
+          if variables_received_from_scenario.include? input_key
+            next
+          end
+          Print.debug "default-modules: #{selected.default_inputs_selectors.inspect}"
+
+          input_values.each do |input_value|
+            default_inputs.concat select_modules(input_value.module_type, input_value.attributes, available_modules, [], 'input_values.write_output_variable', input_value.write_output_variable, input_value.write_to_module_with_id, input_value.received_inputs)
+            default_inputs.each do |input|
+              # if this is a default value to send through to the parent module, rewrite the destination to the actual module
+              if input.write_to_module_with_id == 'vulnerabilitydefaultinput'
+                input.write_to_module_with_id = selected.unique_id
+              end
+            end
+          end
+        end
+      end
 
       # feed through the input from any previous module's output
-      previously_selected_modules.each do |previous_module|
+      (previously_selected_modules + default_inputs).each do |previous_module|
         if previous_module.write_to_module_with_id == unique_id && previous_module.write_output_variable
           (selected.received_inputs[previous_module.write_output_variable] ||=[]).push(*previous_module.output)
         end
@@ -132,7 +183,7 @@ class System
       dependencies = select_required_modules(selected, available_modules, previously_selected_modules + [selected])
     end
 
-    selected_modules = dependencies + [selected]
+    selected_modules = dependencies + default_inputs + [selected]
 
     Print.std "Module added: #{selected.printable_name}"
 
