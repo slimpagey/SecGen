@@ -17,24 +17,24 @@
 
   <!--if an input is not specified in the scenario-->
   <default_input into="strings_to_leak">
-    <value>Plain text from the metadata default...</value>
+    <value>Plain text from the metadata default, destined for strings_to_leak...</value>
     <encoder>
       <input into="strings_to_encode">
         <!--encode the following strings-->
-        <value>Encoded text from the metadata default...</value>
-        <value>More encoded text from the metadata default...</value>
-        <generator />
+        <value>Encoded text from the metadata default, destined for strings_to_leak...</value>
+        <value>More encoded text from the metadata default, destined for strings_to_leak...</value>
+        <generator module_path=".*random.*"/>
       </input>
     </encoder>
   </default_input>
   <default_input into="harmless_unset_variable">
-    <value>Plain text from the metadata default...</value>
-    <encoder>
+    <value>Plain text from the metadata default, destined for harmless_unset_variable...</value>
+    <encoder module_path=".*1337">
       <input into="strings_to_encode">
         <!--encode the following strings-->
-        <value>Encoded text from the metadata default...</value>
-        <value>More encoded text from the metadata default...</value>
-        <generator />
+        <value>Encoded text from the metadata default..., destined for harmless_unset_variable</value>
+        <value>More encoded text from the metadata default..., destined for harmless_unset_variable</value>
+        <generator module_path=".*word.*"/>
       </input>
     </encoder>
   </default_input>
