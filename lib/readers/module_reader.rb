@@ -220,10 +220,8 @@ class ModuleReader
 
         end
 
-
-
-        # Print.debug "new_module.default_inputs_literals: #{new_module.default_inputs_literals}"
-        Print.debug "new_module.default_inputs_selectors = #{new_module.default_inputs_selectors}"
+        Print.debug "new_module.default_inputs_literals: #{new_module.default_inputs_literals}"
+        # Print.debug "new_module.default_inputs_selectors = #{new_module.default_inputs_selectors}"
 
       end
 

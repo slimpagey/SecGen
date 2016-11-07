@@ -27,17 +27,18 @@
       </input>
     </encoder>
   </default_input>
-  <default_input into="harmless_unset_variable">
-    <value>Plain text from the metadata default, destined for harmless_unset_variable...</value>
-    <encoder module_path=".*1337">
-      <input into="strings_to_encode">
-        <!--encode the following strings-->
-        <value>Encoded text from the metadata default..., destined for harmless_unset_variable</value>
-        <value>More encoded text from the metadata default..., destined for harmless_unset_variable</value>
-        <generator module_path=".*word.*"/>
-      </input>
-    </encoder>
-  </default_input>
+  <!--For testing:-->
+  <!--<default_input into="harmless_unset_variable">-->
+    <!--<value>Plain text from the metadata default, destined for harmless_unset_variable...</value>-->
+    <!--<encoder module_path=".*1337">-->
+      <!--<input into="strings_to_encode">-->
+        <!--&lt;!&ndash;encode the following strings&ndash;&gt;-->
+        <!--<value>Encoded text from the metadata default..., destined for harmless_unset_variable, via encoder</value>-->
+        <!--<value>More encoded text from the metadata default..., destined for harmless_unset_variable, via encoder</value>-->
+        <!--<generator module_path=".*word.*"/>-->
+      <!--</input>-->
+    <!--</encoder>-->
+  <!--</default_input>-->
   <!--optional vulnerability details-->
   <difficulty>low</difficulty>
   <!--<cve></cve>-->

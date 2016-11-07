@@ -69,6 +69,7 @@ class Module
 
     (<<-END)
     # #{module_type}: #{module_path}
+    #   id: #{unique_id}
     #   attributes: #{attributes.inspect}
     #   conflicts: #{conflicts.inspect}
     #   requires: #{requires.inspect}#{input}#{out}
