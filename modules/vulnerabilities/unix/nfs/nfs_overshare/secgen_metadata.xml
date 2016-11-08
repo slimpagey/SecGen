@@ -27,7 +27,7 @@
       </input>
     </encoder>
   </default_input>
-  <!--For testing:-->
+  <!--For testing, you can define default values for whatever values you want through to factor:-->
   <!--<default_input into="harmless_unset_variable">-->
     <!--<value>Plain text from the metadata default, destined for harmless_unset_variable...</value>-->
     <!--<encoder module_path=".*1337">-->
