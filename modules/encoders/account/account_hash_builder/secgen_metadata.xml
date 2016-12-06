@@ -13,13 +13,36 @@
   <type>account</type>
   <platform>linux</platform>
 
+  <!-- Facts to read -->
   <read_fact>username</read_fact>
   <read_fact>password</read_fact>
   <read_fact>super_user</read_fact>
   <read_fact>strings_to_leak</read_fact>
   <read_fact>leaked_filenames</read_fact>
 
-  <!-- TODO: This encoder should have default values so that we can omit a default input -->
+  <!-- This encoder has default values so that we can omit a parameter at scenario level -->
+  <default_input into="username">
+    <!--<generator type="username_generator"/>-->
+    <value>hash_builder</value>
+  </default_input>
 
+ <default_input into="password">
+   <generator type="password_generator"/>
+ </default_input>
+
+ <default_input into="super_user">
+   <generator type="boolean_generator"/>
+ </default_input>
+
+ <default_input into="strings_to_leak">
+   <generator type="string_generator"/>
+   <generator type="string_generator"/>
+  </default_input>
+
+  <default_input into="leaked_filename">
+    <value>encoder_defaults_are_working</value>
+  </default_input>
+
+  <!-- Facts to write -->
   <output_type>account</output_type>
 </encoder>
