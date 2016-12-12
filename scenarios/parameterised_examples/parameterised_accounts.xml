@@ -10,7 +10,7 @@
 		<base platform="linux"/>
 
 		<!--Test 1: empty vulnerability @ scenario, 1 account encoder @ vulnerability, defaults @ encoder -->
-		<vulnerability module_path=".*parameterised_accounts" />
+		<!--<vulnerability module_path=".*parameterised_accounts" />-->
 
 		<!--Test 2: 1 account encoder @ scenario, 1 account encoder @ vulnerability, defaults @ encoder -->
 		<vulnerability module_path=".*parameterised_accounts" >
@@ -20,39 +20,57 @@
 		</vulnerability>
 
 		<!--Test 3: 1 account encoder @ scenario w/ value input, 1 account encoder @ vulnerability, defaults @ encoder -->
-		<vulnerability module_path=".*parameterised_accounts" >
-			<input into="accounts">
-				<encoder type="account">
-                  <input into="username">
-                    <value>scenario_username</value>
-                  </input>
-                </encoder>
-			</input>
-		</vulnerability>
+		<!--<vulnerability module_path=".*parameterised_accounts" >-->
+			<!--<input into="accounts">-->
+				<!--<encoder type="account">-->
+                  <!--<input into="username">-->
+                    <!--<value>scenario_username</value>-->
+                  <!--</input>-->
+                <!--</encoder>-->
+			<!--</input>-->
+		<!--</vulnerability>-->
 
 		<!--Test 4: 1 account encoder @ scenario w/ encoder input, 1 account encoder @ vulnerability, defaults @ encoder -->
-		<vulnerability module_path=".*parameterised_accounts" >
-			<input into="accounts">
-				<encoder type="account">
-					<input into="username">
-						<generator type="username_generator"/>
-					</input>
-				</encoder>
-			</input>
-		</vulnerability>
+		<!--<vulnerability module_path=".*parameterised_accounts" >-->
+			<!--<input into="accounts">-->
+				<!--<encoder type="account">-->
+					<!--<input into="username">-->
+						<!--<generator type="username_generator"/>-->
+					<!--</input>-->
+				<!--</encoder>-->
+			<!--</input>-->
+		<!--</vulnerability>-->
 
-		<!--Additional tests: Nice to have but not top priority? -->
-		<!--Test 5: 1 account encoder @ scenario w/ input, 1 account encoder @ vulnerability w/ default_input, defaults @ encoder -->
-		<!--Desired outcome: prio should be scenario > vulnerability > encoder so scenario_username is desired -->
-		<vulnerability module_path=".*parameterised_accounts" >
+      <!--Test 5: 2 account encoders @ scenario w/  encoder input, 1 empty account encoder @ vulnerability, defaults @ encoder -->
+		<vulnerability module_path=".*parameterised_accounts">
 			<input into="accounts">
-				<encoder type="account">
+				<!--First account overrides the username-->
+                <encoder type="account">
 					<input into="username">
 						<value>scenario_username</value>
 					</input>
 				</encoder>
+                <!--Second account just default-->
+                <encoder type="account"/>
 			</input>
 		</vulnerability>
+
+
+      <!--Test 5: 2 account encoders @ scenario w/ encoder input, 1 empty account encoder @ vulnerability, defaults @ encoder -->
+      <vulnerability module_path=".*parameterised_accounts">
+        <input into="accounts">
+
+          <!--First account just default-->
+          <encoder type="account"/>
+
+          <!--Second account overrides the username-->
+          <encoder type="account">
+            <input into="username">
+              <value>scenario_username</value>
+            </input>
+          </encoder>
+        </input>
+      </vulnerability>
 
 		<network type="private_network" range="dhcp"/>
 	</system>
