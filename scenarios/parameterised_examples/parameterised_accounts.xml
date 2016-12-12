@@ -3,33 +3,53 @@
 <scenario xmlns="http://www.github/cliffe/SecGen/scenario"
 		  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 		  xsi:schemaLocation="http://www.github/cliffe/SecGen/scenario">
-	<!-- an example remote storage system, with a remotely exploitable vulnerability that can then be escalated to root -->
+	<!-- an example of a storage_server with the parameterised_accounts vulnerability installed. By default this
+	creates a non-super user account with a weak password and some leaked data. -->
 	<system>
 		<system_name>storage_server</system_name>
 		<base platform="linux"/>
 
-		<vulnerability module_path=".*parameterised_accounts">
+		<!--Test 1: empty vulnerability @ scenario, 1 account encoder @ vulnerability, defaults @ encoder -->
+		<vulnerability module_path=".*parameterised_accounts" />
+
+		<!--Test 2: 1 account encoder @ scenario, 1 account encoder @ vulnerability, defaults @ encoder -->
+		<vulnerability module_path=".*parameterised_accounts" >
 			<input into="accounts">
-				<!--When using the account encoder fill in all facts for now.-->
+				<encoder type="account"/>
+			</input>
+		</vulnerability>
+
+		<!--Test 3: 1 account encoder @ scenario w/ input, 1 account encoder @ vulnerability, defaults @ encoder -->
+		<vulnerability module_path=".*parameterised_accounts" >
+			<input into="accounts">
+				<encoder type="account"/>
+			</input>
+		</vulnerability>
+
+		<!--Test 4: 1 account encoder @ scenario w/ input, 1 account encoder @ vulnerability, defaults @ encoder -->
+		<vulnerability module_path=".*parameterised_accounts" >
+			<input into="accounts">
 				<encoder type="account">
 					<input into="username">
 						<value>scenario_username</value>
 					</input>
-					<input into="password">
-						<generator type="password_generator"/>
-					</input>
-					<input into="super_user">
-						<generator type="boolean_generator"/>
-					</input>
-					<input into="strings_to_leak">
-						<generator type="message_generator"/>
-					</input>
-					<input into="leaked_filenames">
-						<generator module_path="generators/filenames/leaked_filename"/>
+				</encoder>
+			</input>
+		</vulnerability>
+
+		<!--Additional tests: Nice to have but not top priority? -->
+		<!--Test 5: 1 account encoder @ scenario w/ input, 1 account encoder @ vulnerability w/ default_input, defaults @ encoder -->
+		<!--Desired outcome: prio should be scenario > vulnerability > encoder so scenario_username is desired -->
+		<vulnerability module_path=".*parameterised_accounts" >
+			<input into="accounts">
+				<encoder type="account">
+					<input into="username">
+						<value>scenario_username</value>
 					</input>
 				</encoder>
 			</input>
 		</vulnerability>
+
 		<network type="private_network" range="dhcp"/>
 	</system>
 </scenario>

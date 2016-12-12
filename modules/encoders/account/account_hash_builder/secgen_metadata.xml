@@ -22,25 +22,23 @@
 
   <!-- This encoder has default values so that we can omit a parameter at scenario level -->
   <default_input into="username">
-    <!--<generator type="username_generator"/>-->
-    <value>hash_builder</value>
+    <value>hash_builder_username</value>
   </default_input>
 
  <default_input into="password">
-   <generator type="password_generator"/>
+  <generator type="weak_password_generator"/>
  </default_input>
 
  <default_input into="super_user">
-   <generator type="boolean_generator"/>
+   <value>false</value>
  </default_input>
 
  <default_input into="strings_to_leak">
-   <generator type="string_generator"/>
-   <generator type="string_generator"/>
+   <value>A string from the account_hash_builder strings_to_leak default.</value>
   </default_input>
 
   <default_input into="leaked_filename">
-    <value>encoder_defaults_are_working</value>
+    <value>filename_encoder_defaults_are_working</value>
   </default_input>
 
   <!-- Facts to write -->

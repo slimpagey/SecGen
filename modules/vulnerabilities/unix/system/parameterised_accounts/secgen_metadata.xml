@@ -19,13 +19,19 @@
   <read_fact>accounts</read_fact>
   <read_fact>strings_to_leak</read_fact>
 
+  <!--Test 1: empty vulnerability @ scenario, 1 encoder @ vulnerability, defaults @ encoder -->
+  <default_input into="accounts">
+    <encoder type="account"/>
+  </default_input>
+
+  <!--Test 5: 1 account encoder @ scenario w/ input, 1 account encoder @ vulnerability w/ default_input, defaults @ encoder -->
+  <!--Desired outcome: prio should be scenario > vulnerability > encoder so scenario_username is desired -->
   <default_input into="accounts">
     <encoder type="account">
       <input into="username">
-        <value>bob</value>
+        <value>vulnerability_username</value>
       </input>
     </encoder>
-    <encoder type="account"/>
   </default_input>
 
   <!--optional details-->
