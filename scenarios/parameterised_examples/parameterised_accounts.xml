@@ -19,19 +19,23 @@
 			</input>
 		</vulnerability>
 
-		<!--Test 3: 1 account encoder @ scenario w/ input, 1 account encoder @ vulnerability, defaults @ encoder -->
+		<!--Test 3: 1 account encoder @ scenario w/ value input, 1 account encoder @ vulnerability, defaults @ encoder -->
 		<vulnerability module_path=".*parameterised_accounts" >
 			<input into="accounts">
-				<encoder type="account"/>
+				<encoder type="account">
+                  <input into="username">
+                    <value>scenario_username</value>
+                  </input>
+                </encoder>
 			</input>
 		</vulnerability>
 
-		<!--Test 4: 1 account encoder @ scenario w/ input, 1 account encoder @ vulnerability, defaults @ encoder -->
+		<!--Test 4: 1 account encoder @ scenario w/ encoder input, 1 account encoder @ vulnerability, defaults @ encoder -->
 		<vulnerability module_path=".*parameterised_accounts" >
 			<input into="accounts">
 				<encoder type="account">
 					<input into="username">
-						<value>scenario_username</value>
+						<generator type="username_generator"/>
 					</input>
 				</encoder>
 			</input>
