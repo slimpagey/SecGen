@@ -42,35 +42,29 @@
 		<!--</vulnerability>-->
 
       <!--Test 5: 2 account encoders @ scenario w/  encoder input, 1 empty account encoder @ vulnerability, defaults @ encoder -->
-		<vulnerability module_path=".*parameterised_accounts">
-			<input into="accounts">
-				<!--First account overrides the username-->
-                <encoder type="account">
-					<input into="username">
-						<value>scenario_username</value>
-					</input>
-				</encoder>
-                <!--Second account just default-->
-                <encoder type="account"/>
-			</input>
-		</vulnerability>
+		<!--<vulnerability module_path=".*parameterised_accounts">-->
+			<!--<input into="accounts">-->
+                <!--<encoder type="account"> &lt;!&ndash;First account overrides the username&ndash;&gt;-->
+                  <!--<input into="username">-->
+						<!--<value>scenario_username</value>-->
+					<!--</input>-->
+				<!--</encoder>-->
+                <!--<encoder type="account"/> &lt;!&ndash;Second account just default&ndash;&gt;-->
+			<!--</input>-->
+		<!--</vulnerability>-->
 
 
       <!--Test 5: 2 account encoders @ scenario w/ encoder input, 1 empty account encoder @ vulnerability, defaults @ encoder -->
-      <vulnerability module_path=".*parameterised_accounts">
-        <input into="accounts">
-
-          <!--First account just default-->
-          <encoder type="account"/>
-
-          <!--Second account overrides the username-->
-          <encoder type="account">
-            <input into="username">
-              <value>scenario_username</value>
-            </input>
-          </encoder>
-        </input>
-      </vulnerability>
+      <!--<vulnerability module_path=".*parameterised_accounts">-->
+        <!--<input into="accounts">-->
+          <!--<encoder type="account"/>   &lt;!&ndash;  First account just default  &ndash;&gt;-->
+          <!--<encoder type="account">    &lt;!&ndash;  Second account overrides the username  &ndash;&gt;-->
+            <!--<input into="username">-->
+              <!--<value>scenario_username</value>-->
+            <!--</input>-->
+          <!--</encoder>-->
+        <!--</input>-->
+      <!--</vulnerability>-->
 
 		<network type="private_network" range="dhcp"/>
 	</system>
