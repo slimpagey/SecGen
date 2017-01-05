@@ -157,14 +157,6 @@ class System
     # identify which keys/variables are set via default values (to consider use of defaults)
     default_keys = selected.default_inputs_literals.keys | selected.default_inputs_selectors.keys | receives_module_input_into
 
-    Print.debug receives_module_input_into.to_s
-    Print.debug selected.default_inputs_literals.keys.to_s
-    Print.debug selected.default_inputs_selectors.keys.to_s
-    Print.debug selected.received_inputs.keys.to_s
-    Print.debug selected.default_inputs_selectors.to_s
-    Print.debug default_keys.to_s
-    Print.debug selected.received_inputs.to_s
-
     # check whether each defaults should be used
     # for each variable with a default
     default_keys.each do |default_key|
