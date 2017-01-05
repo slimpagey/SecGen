@@ -26,16 +26,16 @@
     <value>hash_builder_username</value>
   </default_input>
 
- <default_input into="password">
-  <generator type="weak_password_generator"/>
- </default_input>
+  <default_input into="password">
+    <generator type="weak_password_generator"/>
+  </default_input>
 
- <default_input into="super_user">
-   <value>false</value>
- </default_input>
+  <default_input into="super_user">
+    <value>false</value>
+  </default_input>
 
- <default_input into="strings_to_leak">
-   <value>A string from the account_hash_builder strings_to_leak default.</value>
+  <default_input into="strings_to_leak">
+    <value>A string from the account_hash_builder strings_to_leak default.</value>
   </default_input>
 
   <default_input into="leaked_filename">
