@@ -1,0 +1,5 @@
+Placeholder (for now!)
+
+Default credentials for MSSQL server. 
+
+Idea is to priv up to XP_CMDShell (or have XP_CMD enabled)
