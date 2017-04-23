@@ -3,9 +3,11 @@ r.page4446@student.leedsbeckett.ac.uk / rob@robertpage.uk
 
 These builders join hosts to domains
 
-1/ linux_domain 
-	> Join nix hosts to a domain
-2/ puppet_domain
-	> Join WINDOWS hosts to a domain using puppet 
-3/ rmi_domain	
+2/ puppet_join_domain
+	> Join WINDOWS hosts to a domain using Puppet 
+3/ rmi_join_domain	
 	> Join WINDOWS hosts to a domain using RMI(Vagrant RMI shell provisioner)
+2/ puppet_domain_controller
+	> Provisions a Domain Controller using Puppet
+3/ rmi_domain_controller	
+	> Provisions a Domain Controller using RMI, through Vagrants RMI Shell provisioner
