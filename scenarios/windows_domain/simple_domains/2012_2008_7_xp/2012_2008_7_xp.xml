@@ -1,12 +1,34 @@
 <?xml version="1.0"?>
 
 <scenario xmlns="http://www.github/cliffe/SecGen/scenario"
-          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          xsi:schemaLocation="http://www.github/cliffe/SecGen/scenario">
-
-  <!-- Windows 7 Enterprise - Robert Page C3385644 -->
-  <system>
-  	<system_name>windows_7</system_name>
-  	<base module_path="moudles/bases/windows_7_enterprise_puppet_64"/>
-  </system>
+		  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		  xsi:schemaLocation="http://www.github/cliffe/SecGen/scenario">
+	<!-- Domain Controller No1 -->
+	<system>	
+		<system_name>dc01</system_name>
+		<base module_path="modules/bases/windows_server_2012_r2_puppet_64" />
+		<build type="domain" />
+		<network module_path=".*private_network_1"/>
+	</system>
+	<!-- Domain Controller No2 -->
+	<system>
+		<system_name>dc02</system_name>
+		<base module_path="modules/bases/windows_server_2008_r2_puppet_64" />
+		<build type="domain" />
+		<network module_path=".*private_network_1"/>
+	</system>
+	<!-- Host No1 -->
+	<system>
+		<system_name>secgen1</system_name>
+		<base module_path="modules/bases/windows_7_enterprise_puppet_64" />
+		<build type="domain" />
+		<network module_path=".*private_network_1"/>
+	</system>
+	<!-- Host No2 -->
+	<system>
+		<system_name>secgen1</system_name>
+		<base module_path="modules/bases/windows_xp_sp2_puppet_64" />
+		<build type="domain" />
+		<network module_path=".*private_network_1"/>
+	</system>
 </scenario>

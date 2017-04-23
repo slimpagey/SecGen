@@ -6,14 +6,14 @@
 	<!-- Domain Controller No1 -->
 	<system>	
 		<system_name>dc01</system_name>
-		<base module_path="modules/bases/windows_server_2012_r2_puppet_64" />
+		<base module_path="modules/bases/windows_server_2016_dcmp_puppet_64" />
 		<build type="domain" />
 		<network module_path=".*private_network_1"/>
 	</system>
 	<!-- Domain Controller No2 -->
 	<system>
 		<system_name>dc02</system_name>
-		<base module_path="modules/bases/windows_server_2008_r2_puppet_64" />
+		<base module_path="modules/bases/windows_server_2012_r2_puppet_64" />
 		<build type="domain" />
 		<network module_path=".*private_network_1"/>
 	</system>
@@ -27,7 +27,7 @@
 	<!-- Host No2 -->
 	<system>
 		<system_name>secgen1</system_name>
-		<base module_path="modules/bases/windows_8_puppet_64" />
+		<base module_path="modules/bases/windows_7_enterprise_puppet_64" />
 		<build type="domain" />
 		<network module_path=".*private_network_1"/>
 	</system>
