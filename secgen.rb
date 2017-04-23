@@ -6,7 +6,6 @@ require_relative 'lib/helpers/print.rb'
 require_relative 'lib/helpers/gem_exec.rb'
 require_relative 'lib/readers/system_reader.rb'
 require_relative 'lib/readers/module_reader.rb'
-#require_relative 'lib/readers/domain_reader.rb'
 require_relative 'lib/output/project_files_creator.rb'
 
 # Displays secgen usage data
