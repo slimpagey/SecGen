@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+
+<base xmlns="http://www.github/cliffe/SecGen/base"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://www.github/cliffe/SecGen/base">
+  <name>Windows Server 2008 R2 64bit with Puppet</name>
+  <author>Robert Page</author>
+  <module_license>GPLv3</module_license>
+  <description>Windows Server 2008 64bit 1GB RAM and 25GB HDD. Puppet installed.</description>
+  <type>desktop</type>
+  <type>server</type>
+
+  <platform>windows</platform>
+  <distro>Windows Server 2008 R2 (x86)</distro>
+  <url>http://atlas.hashicorp.com/therealslimpagey/boxes/windows_server_2008_r2_enterprise_puppet/versions/0.1.0/providers/virtualbox.box</url>
+
+  <reference>https://atlas.hashicorp.com/therealslimpagey</reference>
+  <software_license>various</software_license>
+
+</base>

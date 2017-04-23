@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+
+<scenario xmlns="http://www.github/cliffe/SecGen/scenario"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://www.github/cliffe/SecGen/scenario">
+
+  <!-- Windows Server 2000 MS03-026 - Robert Page C3385644 -->
+  <system>
+  	<system_name>windows_2000</system_name>
+  	<base module_path="moudles/bases/windows_server_2000_enterprise_puppet_64" />
+  	<vulnerability module_path="moudles/vulnerabilities/windows/host/ms03_026" />
+  </system>
+</scenario>

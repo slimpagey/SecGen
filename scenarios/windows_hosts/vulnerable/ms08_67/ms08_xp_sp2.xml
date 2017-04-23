@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+
+<scenario xmlns="http://www.github/cliffe/SecGen/scenario"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://www.github/cliffe/SecGen/scenario">
+
+  <!-- Windows XP SP2 MS08-067 - Robert Page C3385644 -->
+  <system>
+  	<system_name>windows_xp</system_name>
+  	<base module_path="moudles/bases/windows_xp_sp2_puppet_64"/>
+  	<vulnerability module_path="moudles/vulnerabilities/windows/host/ms08_067" />
+  </system>
+</scenario>

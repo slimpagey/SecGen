@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+
+<scenario xmlns="http://www.github/cliffe/SecGen/scenario"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://www.github/cliffe/SecGen/scenario">
+
+  <!-- Windows 7 Enterprise - Robert Page C3385644 -->
+  <system>
+  	<system_name>windows_7</system_name>
+  	<base module_path="moudles/bases/windows_7_enterprise_puppet_64"/>
+  </system>
+</scenario>

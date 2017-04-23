@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+
+<scenario xmlns="http://www.github/cliffe/SecGen/scenario"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://www.github/cliffe/SecGen/scenario">
+
+  <!-- Windows 7 Home Premium - Robert Page C3385644 -->
+  <system>
+  	<system_name>windows_7_home</system_name>
+  	<base module_path="moudles/bases/windows_7_home_premium_puppet_64"/>
+  </system>
+</scenario>
