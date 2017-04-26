@@ -2,10 +2,10 @@
 <build xmlns="http://www.github/cliffe/SecGen/build"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://www.github/cliffe/SecGen/build">
-  <name>Join Hosts to a Domain using Puppet</name>
+  <name>Create a group within a Windows Domain</name>
   <author>Robert Page</author>
   <module_license>MIT</module_license>
-  <description>Join Windows Hosts to a Domain using Puppet</description>
+  <description>Create a new group within a Windows Domain.</description>
 
   <type>domain</type>
   <platform>windows</platform>
