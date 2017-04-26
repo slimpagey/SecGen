@@ -1,0 +1,6 @@
+either change windows hosts to not be in a dir or change 
+00windows_installed to _windows_installed 
+
+Needs to stand out from the hosts 
+
+or move hosts to windows_hosts
