@@ -1,4 +1,4 @@
 todo 
 
-puppet.conf requires 
+-- puppet.conf requires 
 ordering=mainfest 

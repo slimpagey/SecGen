@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<build xmlns="http://www.github/cliffe/SecGen/build"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://www.github/cliffe/SecGen/build">
+  <name>Add a user to a Windows Domain</name>
+  <author>Robert Page</author>
+  <module_license>MIT</module_license>
+  <description>Create a new user within a Windows Domain.</description>
+
+  <type>domain</type>
+  <platform>windows</platform>
+</build>
