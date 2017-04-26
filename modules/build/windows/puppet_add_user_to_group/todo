@@ -1,0 +1,7 @@
+todo 
+
+-- puppet.conf requires 
+ordering=mainfest 
+
+-- Figure out how to add multiple users to multiple groups
+	- loop here per user, or just call the builder each time a user is specified? 
